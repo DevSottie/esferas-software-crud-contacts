@@ -2,7 +2,7 @@
 <p align="center">Desafio proposto como parte do processo seletivo para a vaga de Desenvolvedor Back-end da Esferas Software</p>
 
    * [Escopo](#escopo)
-   * [Bônus](#bonus)
+   * [Bônus](#bônus)
 
 ### Escopo:
 Criar um sistema web para cadastro de contatos
@@ -10,15 +10,14 @@ Criar um sistema web para cadastro de contatos
 - [x] Deve utilizar um banco de dados relacional para armazenar as informações
 - [x] Deve listar todos os contatos
 - [x] Deve poder incluir, editar e excluir os contatos
-- [x] Deve validar campos obrigatórios
-- [x] Deve ter os seguintes campos (*obrigatórios)
-- [x] Nome*
-- [x] Sobrenome*
-- [x] CPF
-- [x] E-mail
-- [x] Telefone*
+* Deve ter os seguintes campos (campos com * são obrigatórios e devem ser validados):
+  * - [x] Nome *
+  * - [x] Sobrenome *
+  * - [x] CPF
+  * - [x] E-mail
+  * - [x] Telefone *
 
-### BÔNUS (opcional fazer)
+### Bônus
 - [x] Validar o CPF
 - [x] Validar o E-mail
 - [ ] Colocar máscaras nos campos
