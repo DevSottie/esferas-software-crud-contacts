@@ -11,11 +11,11 @@ Criar um sistema web para cadastro de contatos
 - [x] Deve listar todos os contatos
 - [x] Deve poder incluir, editar e excluir os contatos
 * Deve ter os seguintes campos (campos com * são obrigatórios e devem ser validados):
-  *- [x] Nome *
-  *- [x] Sobrenome *
-  *- [x] CPF
-  *- [x] E-mail
-  *- [x] Telefone *
+  * - [x] Nome *
+  * - [x] Sobrenome *
+  * - [x] CPF
+  * - [x] E-mail
+  * - [x] Telefone *
 
 ### Bônus
 - [x] Validar o CPF
