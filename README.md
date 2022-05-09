@@ -18,7 +18,7 @@ Criar um sistema web para cadastro de contatos
 - [x] E-mail
 - [x] Telefone*
 
-###BÔNUS (opcional fazer)
+### BÔNUS (opcional fazer)
 - [x] Validar o CPF
 - [x] Validar o E-mail
 - [ ] Colocar máscaras nos campos
