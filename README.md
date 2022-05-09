@@ -2,6 +2,7 @@
 <p align="center">Desafio proposto como parte do processo seletivo para a vaga de Desenvolvedor Back-end da Esferas Software</p>
 
    * [Escopo](#escopo)
+   * [Bônus](#bonus)
 
 ### Escopo:
 Criar um sistema web para cadastro de contatos
@@ -17,7 +18,7 @@ Criar um sistema web para cadastro de contatos
 - [x] E-mail
 - [x] Telefone*
 
-###BÔNUS (opcional fazer)
+### BÔNUS (opcional fazer)
 - [x] Validar o CPF
 - [x] Validar o E-mail
 - [ ] Colocar máscaras nos campos

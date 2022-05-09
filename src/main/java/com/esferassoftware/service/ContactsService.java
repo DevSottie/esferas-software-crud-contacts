@@ -33,9 +33,13 @@ public class ContactsService {
 	
 	public Contact findById(Long id) {
 		Optional<Contact> contact = repository.findById(id);
-		
 		return contact.orElseThrow(() -> new NotFoundException(
 				"Contato não encontrado! Identificação: " + id + " Tipo: " + Contact.class.getName(), null)); 
+	}
+	public Contact findByName(String nome) {
+		Optional<Contact> contact = repository.findByName(nome);
+		return contact.orElseThrow(() -> new NotFoundException(
+				"Contato não encontrado! Identificação: " + nome + " Tipo: " + Contact.class.getName(), null));
 	}
 	
 	public void deleteContact(Long id) throws Exception{
