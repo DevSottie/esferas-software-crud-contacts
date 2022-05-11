@@ -70,11 +70,11 @@ public class ContactsService {
 		if(newContact.getCpf()!= null) {
 			newContact.setCpf(contact.getCpf());
 		}
-		if(newContact.getEmail()!= null) {
-			newContact.setEmail(contact.getEmail());
+		if(newContact.getEmails()!= null) {
+			newContact.setEmails(contact.getEmails());
 		}
-		if(newContact.getTelefone()!= null) {
-			newContact.setTelefone(contact.getTelefone());
+		if(newContact.getTelefones()!= null) {
+			newContact.setTelefone(contact.getTelefones());
 		}
 	}
 }

@@ -1,6 +1,9 @@
 package com.esferassoftware.dto;
 
-import javax.validation.constraints.Email;
+import java.util.List;
+
+import javax.persistence.OneToMany;
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.br.CPF;
@@ -18,11 +21,13 @@ public class ContactDTO {
 	@CPF
 	private String cpf;
 	
-	@Email
-	private String email;
+	@Valid
+	@OneToMany
+	private List<EmailDTO> emails;
 	
 	@NotEmpty
-	private String telefone;
+	@OneToMany
+	private List<PhoneDTO> telefones;
 
 	public Long getId() {
 		return id;
@@ -56,20 +61,20 @@ public class ContactDTO {
 		this.cpf = cpf;
 	}
 
-	public String getEmail() {
-		return email;
+	public List<EmailDTO> getEmails() {
+		return emails;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmails(List<EmailDTO> emails) {
+		this.emails = emails;
 	}
 
-	public String getTelefone() {
-		return telefone;
+	public List<PhoneDTO> getTelefone() {
+		return telefones;
 	}
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+	public void setTelefone(List<PhoneDTO> telefones) {
+		this.telefones = telefones;
 	}
 	
 }
