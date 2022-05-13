@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.esferassoftware.dto.ContactDTO;
 import com.esferassoftware.model.Contact;
+import com.esferassoftware.model.Email;
 import com.esferassoftware.service.ContactsService;
 
 @RestController
@@ -34,28 +35,29 @@ public class ContactsController {
 		return ResponseEntity.ok().body(contacts);
 	}
 	
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<Contact> findById(@PathVariable Long id){
-		Contact contact = service.findById(id);
+	@GetMapping(value = "/contactid={contactId}")
+	public ResponseEntity<Contact> findById(@PathVariable Long contactId){
+		Contact contact = service.findById(contactId);
 		return ResponseEntity.ok().body(contact);
 	}
 	
 	@PostMapping
 	public ResponseEntity<Void> insertContact(@RequestBody @Valid ContactDTO contactDTO){
 		service.insertContact(contactDTO);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(contactDTO.getId()).toUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{contactId}").buildAndExpand(contactDTO.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
 	
-	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<String> deleteContact(@PathVariable Long id) throws Exception{
-		Contact contact = service.findById(id);
-		service.deleteContact(id);
-		return ResponseEntity.ok().body("Contato: " + contact.getNome() + "\nIdentificação: "+ id + "\nDeletado com sucesso");
+	@DeleteMapping(value = "/contactid={contactId}")
+	public ResponseEntity<String> deleteContact(@PathVariable Long contactId) throws Exception{
+		Contact contact = service.findById(contactId);
+		service.deleteContact(contactId);
+		return ResponseEntity.ok().body("Contato: " + contact.getNome() + "\nIdentificação: "+ contactId + "\nDeletado com sucesso");
 	}
 	
-	@PutMapping(value = "/{id}")
-	public Contact updateContact(@RequestBody Contact contact, @PathVariable Long id) {
-		return service.updateContact(id, contact);
+	@PutMapping(value = "/contactid={contactId}")
+	public Contact updateContact(@RequestBody Contact contact, @PathVariable Long contactId) {
+		return service.updateContact(contactId, contact);
 	}
+	
 }

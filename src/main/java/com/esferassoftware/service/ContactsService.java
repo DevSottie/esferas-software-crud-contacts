@@ -19,23 +19,23 @@ import com.esferassoftware.service.exception.NotFoundException;
 public class ContactsService {
 
 	@Autowired
-	private ContactsRepository repository;
+	private ContactsRepository contactsRepository;
 	
 	public List<ContactDTO> findAll(){
-		return repository.findAll().stream().map(ContactParser.get()::dto).collect(Collectors.toList());
+		return contactsRepository.findAll().stream().map(ContactParser.get()::dto).collect(Collectors.toList());
 	}
 	
 	public Contact insertContact(ContactDTO contactDTO) {
 		ContactParser parser = new ContactParser();
 		Contact contact = parser.model(contactDTO);
-		return repository.save(contact);
+		return contactsRepository.save(contact);
 	}
 	
 	public Contact findById(Long id) {
-		Optional<Contact> contact = repository.findById(id);
+		Optional<Contact> contact = contactsRepository.findById(id);
 		
 		return contact.orElseThrow(() -> new NotFoundException(
-				"Contato não encontrado! Identificação: " + id + " Tipo: " + Contact.class.getName(), null)); 
+				"Contato não encontrado! Identificação: " + id, null)); 
 	}
 	
 	public void deleteContact(Long id) throws Exception{
@@ -45,36 +45,40 @@ public class ContactsService {
 			throw new NotFoundException("Contato não encontrado");
 		}
 		
-		repository.deleteById(id);
+		contactsRepository.deleteById(id);
 	}
 	
-	public Contact updateContact(Long id, Contact contact) {
-		Contact newContact = findById(id);
-		if(newContact == null) {
+	public Contact updateContact(Long id, Contact newContact) {
+		Contact contact = findById(id);
+		if(contact == null) {
 			throw new NotFoundException("Contato não encontrado");
 		}
 		
 		updateData(newContact, contact);
 		
-		return repository.save(newContact);
+		return contactsRepository.save(newContact);
 	}
+	
 	
 	@Transactional
 	void updateData(Contact newContact, Contact contact) {
-		if(newContact.getNome()!= null) {
+		newContact.setId(contact.getId());
+		if(newContact.getNome() == null) {
 			newContact.setNome(contact.getNome());
 		}
-		if(newContact.getSobrenome()!= null) {
+		if(newContact.getSobrenome() == null) {
 			newContact.setSobrenome(contact.getSobrenome());
 		}
-		if(newContact.getCpf()!= null) {
+		if(newContact.getCpf() == null) {
 			newContact.setCpf(contact.getCpf());
 		}
-		if(newContact.getEmails()!= null) {
+		
+		if(newContact.getEmails() == null) {
 			newContact.setEmails(contact.getEmails());
 		}
-		if(newContact.getTelefones()!= null) {
-			newContact.setTelefone(contact.getTelefones());
+		
+		if(newContact.getTelefones() == null) {
+			newContact.setTelefones(contact.getTelefones());
 		}
 	}
 }

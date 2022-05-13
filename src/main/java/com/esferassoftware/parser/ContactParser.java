@@ -13,6 +13,8 @@ public class ContactParser {
 		dto.setId(entity.getId());
 		dto.setNome(entity.getNome());
 		dto.setSobrenome(entity.getSobrenome());
+		dto.setEmails(entity.getEmails());
+		dto.setTelefones(entity.getTelefones());
 		dto.setCpf(entity.getCpf());
 		
 		return dto;
@@ -22,6 +24,8 @@ public class ContactParser {
 		model.setId(entity.getId());
 		model.setNome(entity.getNome());
 		model.setSobrenome(entity.getSobrenome());
+		model.setEmails(entity.getEmails());
+		model.setTelefones(entity.getTelefones());
 		model.setCpf(entity.getCpf());
 		
 		return model;

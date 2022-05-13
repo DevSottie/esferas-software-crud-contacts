@@ -2,11 +2,14 @@ package com.esferassoftware.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,13 +30,12 @@ public class Contact {
 	@Column(nullable = true, unique = true)
 	private String cpf;
 	
-	
-	@Column(nullable = true, unique = true)
-	@OneToMany
+	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+	@JoinColumn(name = "emails_id")
 	private List<Email> emails;
 	
-	@Column(nullable = false, unique = true)
-	@OneToMany
+	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+	@JoinColumn(name = "telefones_id")
 	private List<Phone> telefones;
 
 	public Long getId() {
@@ -80,7 +82,7 @@ public class Contact {
 		return telefones;
 	}
 
-	public void setTelefone(List<Phone> telefones) {
+	public void setTelefones(List<Phone> telefones) {
 		this.telefones = telefones;
 	}
 

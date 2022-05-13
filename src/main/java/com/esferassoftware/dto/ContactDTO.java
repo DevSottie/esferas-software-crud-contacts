@@ -8,6 +8,9 @@ import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import com.esferassoftware.model.Email;
+import com.esferassoftware.model.Phone;
+
 public class ContactDTO {
 	
 	private Long id;
@@ -22,12 +25,10 @@ public class ContactDTO {
 	private String cpf;
 	
 	@Valid
-	@OneToMany
-	private List<EmailDTO> emails;
+	private List<Email> emails;
 	
 	@NotEmpty
-	@OneToMany
-	private List<PhoneDTO> telefones;
+	private List<Phone> telefones;
 
 	public Long getId() {
 		return id;
@@ -61,19 +62,19 @@ public class ContactDTO {
 		this.cpf = cpf;
 	}
 
-	public List<EmailDTO> getEmails() {
+	public List<Email> getEmails() {
 		return emails;
 	}
 
-	public void setEmails(List<EmailDTO> emails) {
+	public void setEmails(List<Email> emails) {
 		this.emails = emails;
 	}
 
-	public List<PhoneDTO> getTelefone() {
+	public List<Phone> getTelefones() {
 		return telefones;
 	}
 
-	public void setTelefone(List<PhoneDTO> telefones) {
+	public void setTelefones(List<Phone> telefones) {
 		this.telefones = telefones;
 	}
 	
