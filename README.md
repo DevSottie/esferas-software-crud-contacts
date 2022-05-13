@@ -22,7 +22,7 @@ Criar um sistema web para cadastro de contatos
 - [x] Validar o CPF
 - [x] Validar o E-mail
 - [ ] Colocar máscaras nos campos
-- [ ] Cadastrar mais de um telefone por pessoa
-- [ ] Cadastrar mais de um e-mail por pessoa
+- [x] Cadastrar mais de um telefone por pessoa
+- [x] Cadastrar mais de um e-mail por pessoa
 - [x] Pesquisar na lista de pessoas cadastradas
 - [x] Criar o Docker (docker-compose) para rodar a aplicação
